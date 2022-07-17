@@ -1,0 +1,27 @@
+{
+  "apparkingApp": {
+    "parkingClient": {
+      "home": {
+        "title": "Parking Clients",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Parking Client",
+        "createOrEditLabel": "Create or edit a Parking Client",
+        "notFound": "No Parking Clients found"
+      },
+      "created": "A new Parking Client is created with identifier {{ param }}",
+      "updated": "A Parking Client is updated with identifier {{ param }}",
+      "deleted": "A Parking Client is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Parking Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Parking Client"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phoneNumber": "Phone Number",
+      "licensePlateNumbers": "License Plate Numbers"
+    }
+  }
+}
