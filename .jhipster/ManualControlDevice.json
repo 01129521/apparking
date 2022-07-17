@@ -1,0 +1,22 @@
+{
+  "changelogDate": "20220717133839",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "device",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Boolean"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "ManualControlDevice",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

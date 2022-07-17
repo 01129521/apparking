@@ -1,0 +1,25 @@
+{
+  "apparkingApp": {
+    "manualControlDevice": {
+      "home": {
+        "title": "Manual Control Device",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Manual Control Device",
+        "createOrEditLabel": "Dodaj lub edytuj: Manual Control Device",
+        "notFound": "No Manual Control Devices found"
+      },
+      "created": "Utworzono nowy obiekt typu Manual Control Device z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Manual Control Device z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Manual Control Device z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Manual Control Device {{ id }}?"
+      },
+      "detail": {
+        "title": "Manual Control Device"
+      },
+      "id": "ID",
+      "device": "Device",
+      "state": "State"
+    }
+  }
+}

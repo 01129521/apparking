@@ -50,6 +50,7 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
             createCache(cm, com.mycompany.myapp.domain.ParkingClient.class.getName());
             createCache(cm, com.mycompany.myapp.domain.CameraReading.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ManualControlDevice.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

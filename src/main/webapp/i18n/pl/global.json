@@ -9,6 +9,7 @@
         "main": "Encje",
         "parkingClient": "Parking Client",
         "cameraReading": "Camera Reading",
+        "manualControlDevice": "Manual Control Device",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
