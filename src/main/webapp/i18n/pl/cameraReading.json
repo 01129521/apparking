@@ -1,0 +1,18 @@
+{
+  "apparkingApp": {
+    "cameraReading": {
+      "home": {
+        "title": "Camera Reading",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Camera Readings found"
+      },
+      "detail": {
+        "title": "Camera Reading"
+      },
+      "id": "ID",
+      "cameraReadingDate": "Camera Reading Date",
+      "licensePlateNumbers": "License Plate Numbers",
+      "licensePlatePhoto": "License Plate Photo"
+    }
+  }
+}

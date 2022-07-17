@@ -8,6 +8,7 @@
       "entities": {
         "main": "Encje",
         "parkingClient": "Parking Client",
+        "cameraReading": "Camera Reading",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

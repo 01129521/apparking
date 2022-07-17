@@ -1,0 +1,73 @@
+<div>
+  <h2 id="page-heading" data-cy="CameraReadingHeading">
+    <span jhiTranslate="apparkingApp.cameraReading.home.title">Camera Readings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apparkingApp.cameraReading.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="cameraReadings?.length === 0">
+    <span jhiTranslate="apparkingApp.cameraReading.home.notFound">No cameraReadings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="cameraReadings && cameraReadings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="cameraReadingDate">
+            <span jhiTranslate="apparkingApp.cameraReading.cameraReadingDate">Camera Reading Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="licensePlateNumbers">
+            <span jhiTranslate="apparkingApp.cameraReading.licensePlateNumbers">License Plate Numbers</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="licensePlatePhoto">
+            <span jhiTranslate="apparkingApp.cameraReading.licensePlatePhoto">License Plate Photo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let cameraReading of cameraReadings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/camera-reading', cameraReading.id, 'view']">{{ cameraReading.id }}</a>
+          </td>
+          <td>{{ cameraReading.cameraReadingDate }}</td>
+          <td>{{ cameraReading.licensePlateNumbers }}</td>
+          <td>
+            <a
+              *ngIf="cameraReading.licensePlatePhoto"
+              (click)="openFile(cameraReading.licensePlatePhoto, cameraReading.licensePlatePhotoContentType)"
+              jhiTranslate="entity.action.open"
+              >open</a
+            >
+            <span *ngIf="cameraReading.licensePlatePhoto"
+              >{{ cameraReading.licensePlatePhotoContentType }}, {{ byteSize(cameraReading.licensePlatePhoto) }}</span
+            >
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/camera-reading', cameraReading.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

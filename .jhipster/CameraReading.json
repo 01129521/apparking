@@ -1,0 +1,26 @@
+{
+  "changelogDate": "20220717133117",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "cameraReadingDate",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "licensePlateNumbers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "licensePlatePhoto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "CameraReading",
+  "pagination": "infinite-scroll",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

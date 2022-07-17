@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cameraReading">
+      <h2 data-cy="cameraReadingDetailsHeading"><span jhiTranslate="apparkingApp.cameraReading.detail.title">Camera Reading</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cameraReading.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="apparkingApp.cameraReading.cameraReadingDate">Camera Reading Date</span></dt>
+        <dd>
+          <span>{{ cameraReading.cameraReadingDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apparkingApp.cameraReading.licensePlateNumbers">License Plate Numbers</span></dt>
+        <dd>
+          <span>{{ cameraReading.licensePlateNumbers }}</span>
+        </dd>
+        <dt><span jhiTranslate="apparkingApp.cameraReading.licensePlatePhoto">License Plate Photo</span></dt>
+        <dd>
+          <div *ngIf="cameraReading.licensePlatePhoto">
+            <a
+              (click)="openFile(cameraReading.licensePlatePhoto, cameraReading.licensePlatePhotoContentType)"
+              jhiTranslate="entity.action.open"
+              >open</a
+            >
+            {{ cameraReading.licensePlatePhotoContentType }}, {{ byteSize(cameraReading.licensePlatePhoto) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>
