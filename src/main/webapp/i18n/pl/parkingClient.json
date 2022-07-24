@@ -2,26 +2,27 @@
   "apparkingApp": {
     "parkingClient": {
       "home": {
-        "title": "Parking Client",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Dodaj Parking Client",
-        "createOrEditLabel": "Dodaj lub edytuj: Parking Client",
-        "notFound": "No Parking Clients found"
+        "title": "Klienci parkingu",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj nowego klienta",
+        "editLabel": "Edytuj klienta",
+        "createOrEditLabel": "Dodaj lub edytuj klienta parkingu",
+        "notFound": "Nie znaleziono klientów parkingu"
       },
-      "created": "Utworzono nowy obiekt typu Parking Client z identyfikatorem {{ param }}",
-      "updated": "Uaktualniono obiekt typu Parking Client z identyfikatorem {{ param }}",
-      "deleted": "Usunięto obiekt typu Parking Client z identyfikatorem {{ param }}",
+      "created": "Utworzono nowy obiekt typu klient parkingu z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu klient parkingu z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu klient parkingu z identyfikatorem {{ param }}",
       "delete": {
-        "question": "Czy na pewno chcesz usunąć Parking Client {{ id }}?"
+        "question": "Czy na pewno chcesz usunąć klienta parking o identyfikatorze {{ id }}?"
       },
       "detail": {
-        "title": "Parking Client"
+        "title": "Klient parkingu"
       },
       "id": "ID",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "phoneNumber": "Phone Number",
-      "licensePlateNumbers": "License Plate Numbers"
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phoneNumber": "Numer telefonu",
+      "licensePlateNumbers": "Numery tablicy rejestracyjnej"
     }
   }
 }

@@ -2,7 +2,22 @@
   <h2 id="page-heading" data-cy="ParkingClientHeading">
     <span jhiTranslate="apparkingApp.parkingClient.home.title">Parking Clients</span>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-start mt-2">
+      <div style="margin-right: 1%">
+        <form class="form-inline my-2 my-lg-0 mr-3">
+          <input
+            type="search"
+            (ngModelChange)="searchClient(key.value)"
+            #key="ngModel"
+            ngModel
+            name="key"
+            id="searchName"
+            class="form-control mr-sm-2"
+            placeholder="Znajdź użytkownika..."
+          />
+        </form>
+      </div>
+
       <button class="btn btn-info me-2" (click)="reset()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="apparkingApp.parkingClient.home.refreshListLabel">Refresh List</span>
@@ -32,43 +47,38 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col" jhiSortBy="firstName">
-            <span jhiTranslate="apparkingApp.parkingClient.firstName">First Name</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.parkingClient.firstName">First Name</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="lastName">
-            <span jhiTranslate="apparkingApp.parkingClient.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.parkingClient.lastName">Last Name</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="phoneNumber">
-            <span jhiTranslate="apparkingApp.parkingClient.phoneNumber">Phone Number</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.parkingClient.phoneNumber">Phone Number</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="licensePlateNumbers">
-            <span jhiTranslate="apparkingApp.parkingClient.licensePlateNumbers">License Plate Numbers</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.parkingClient.licensePlateNumbers">License Plate Numbers</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
         <tr *ngFor="let parkingClient of parkingClients; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/parking-client', parkingClient.id, 'view']">{{ parkingClient.id }}</a>
-          </td>
+          <td>{{ parkingClient.id }}</td>
           <td>{{ parkingClient.firstName }}</td>
           <td>{{ parkingClient.lastName }}</td>
           <td>{{ parkingClient.phoneNumber }}</td>
           <td>{{ parkingClient.licensePlateNumbers }}</td>
           <td class="text-end">
             <div class="btn-group">
-              <button
-                type="submit"
-                [routerLink]="['/parking-client', parkingClient.id, 'view']"
-                class="btn btn-info btn-sm"
-                data-cy="entityDetailsButton"
-              >
-                <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-              </button>
-
               <button
                 type="submit"
                 [routerLink]="['/parking-client', parkingClient.id, 'edit']"

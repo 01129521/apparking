@@ -2,24 +2,25 @@
   "apparkingApp": {
     "manualControlDevice": {
       "home": {
-        "title": "Manual Control Device",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Dodaj Manual Control Device",
-        "createOrEditLabel": "Dodaj lub edytuj: Manual Control Device",
-        "notFound": "No Manual Control Devices found"
+        "title": "Manualne sterowanie urządzeniami",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj urządzenie do manualnego sterowania",
+        "editLabel": "Edytuj urządzenie do manualnego sterowania",
+        "createOrEditLabel": "Dodaj lub edytuj: Urządzenie do manualnego sterowania",
+        "notFound": "Nie znaleziono urządzeń do manualnego sterowania"
       },
-      "created": "Utworzono nowy obiekt typu Manual Control Device z identyfikatorem {{ param }}",
-      "updated": "Uaktualniono obiekt typu Manual Control Device z identyfikatorem {{ param }}",
-      "deleted": "Usunięto obiekt typu Manual Control Device z identyfikatorem {{ param }}",
+      "created": "Utworzono nowy obiekt typu urządzenie do manualnego sterowania z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu urządzenie do manualnego sterowania z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu urządzenie do manualnego sterowania z identyfikatorem {{ param }}",
       "delete": {
-        "question": "Czy na pewno chcesz usunąć Manual Control Device {{ id }}?"
+        "question": "Czy na pewno chcesz usunąć urządzenie do manualnego sterowania z identyfikatorem {{ id }}?"
       },
       "detail": {
-        "title": "Manual Control Device"
+        "title": "Urządzenie do manualnego sterowania"
       },
       "id": "ID",
-      "device": "Device",
-      "state": "State"
+      "device": "Urządzenie",
+      "state": "Stan urządzenia"
     }
   }
 }

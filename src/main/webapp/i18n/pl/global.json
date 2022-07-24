@@ -7,9 +7,9 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Encje",
-        "parkingClient": "Parking Client",
-        "cameraReading": "Camera Reading",
-        "manualControlDevice": "Manual Control Device",
+        "parkingClient": "Klienci parkingu",
+        "cameraReading": "Rejestr",
+        "manualControlDevice": "Manualne sterowanie urządzeniami",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -17,7 +17,7 @@
         "settings": "Ustawienia",
         "password": "Hasło",
         "sessions": "Sesje",
-        "login": "Autoryzacja",
+        "login": "Login",
         "logout": "Wyloguj",
         "register": "Zarejestruj się"
       },
@@ -98,7 +98,7 @@
       "cancel": "Anuluj",
       "delete": "Usuń",
       "edit": "Edytuj",
-      "open": "Otwórz",
+      "open": "[LINK]",
       "save": "Zapisz",
       "view": "Widok"
     },
@@ -139,5 +139,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "To jest stopka"
+  "footer": "© by Adrian Wasiński (praca dyplomowa magisterska)"
 }

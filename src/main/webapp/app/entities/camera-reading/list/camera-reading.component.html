@@ -2,7 +2,21 @@
   <h2 id="page-heading" data-cy="CameraReadingHeading">
     <span jhiTranslate="apparkingApp.cameraReading.home.title">Camera Readings</span>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-start mt-2">
+      <div style="margin-right: 1%">
+        <form class="form-inline my-2 my-lg-0 mr-3">
+          <input
+            type="search"
+            (ngModelChange)="searchReading(key.value)"
+            #key="ngModel"
+            ngModel
+            name="key"
+            id="searchName"
+            class="form-control mr-sm-2"
+            placeholder="Znajdź odczyt..."
+          />
+        </form>
+      </div>
       <button class="btn btn-info me-2" (click)="reset()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="apparkingApp.cameraReading.home.refreshListLabel">Refresh List</span>
@@ -22,24 +36,27 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col" jhiSortBy="cameraReadingDate">
-            <span jhiTranslate="apparkingApp.cameraReading.cameraReadingDate">Camera Reading Date</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.cameraReading.cameraReadingDate">Camera Reading Date</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="licensePlateNumbers">
-            <span jhiTranslate="apparkingApp.cameraReading.licensePlateNumbers">License Plate Numbers</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.cameraReading.licensePlateNumbers">License Plate Numbers</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="licensePlatePhoto">
-            <span jhiTranslate="apparkingApp.cameraReading.licensePlatePhoto">License Plate Photo</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.cameraReading.licensePlatePhoto">License Plate Photo</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col"></th>
         </tr>
       </thead>
       <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
         <tr *ngFor="let cameraReading of cameraReadings; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/camera-reading', cameraReading.id, 'view']">{{ cameraReading.id }}</a>
-          </td>
+          <td>{{ cameraReading.id }}</td>
           <td>{{ cameraReading.cameraReadingDate }}</td>
           <td>{{ cameraReading.licensePlateNumbers }}</td>
           <td>
@@ -49,22 +66,6 @@
               jhiTranslate="entity.action.open"
               >open</a
             >
-            <span *ngIf="cameraReading.licensePlatePhoto"
-              >{{ cameraReading.licensePlatePhotoContentType }}, {{ byteSize(cameraReading.licensePlatePhoto) }}</span
-            >
-          </td>
-          <td class="text-end">
-            <div class="btn-group">
-              <button
-                type="submit"
-                [routerLink]="['/camera-reading', cameraReading.id, 'view']"
-                class="btn btn-info btn-sm"
-                data-cy="entityDetailsButton"
-              >
-                <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-              </button>
-            </div>
           </td>
         </tr>
       </tbody>

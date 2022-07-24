@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IParkingClient } from '../parking-client.model';
+import { IParkingClient, ParkingClient } from '../parking-client.model';
 
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/config/pagination.constants';
 import { ParkingClientService } from '../service/parking-client.service';
@@ -81,6 +81,24 @@ export class ParkingClientComponent implements OnInit {
         this.reset();
       }
     });
+  }
+
+  public searchClient(key: string): void {
+    const results: ParkingClient[] = [];
+    for (const client of this.parkingClients) {
+      if (
+        client.firstName?.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        client.lastName?.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        client.phoneNumber?.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        client.licensePlateNumbers?.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      ) {
+        results.push(client);
+      }
+    }
+    this.parkingClients = results;
+    if (results.length === 0 || !key) {
+      this.loadAll();
+    }
   }
 
   protected sort(): string[] {

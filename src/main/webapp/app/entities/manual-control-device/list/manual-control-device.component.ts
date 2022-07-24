@@ -72,6 +72,10 @@ export class ManualControlDeviceComponent implements OnInit {
     this.loadAll();
   }
 
+  setActive(manualControlDevice: IManualControlDevice, isActivated: boolean): void {
+    this.manualControlDeviceService.update({ ...manualControlDevice, state: isActivated }).subscribe(() => this.reset());
+  }
+
   trackId(_index: number, item: IManualControlDevice): number {
     return item.id!;
   }

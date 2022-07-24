@@ -2,7 +2,7 @@
   <h2 id="page-heading" data-cy="ManualControlDeviceHeading">
     <span jhiTranslate="apparkingApp.manualControlDevice.home.title">Manual Control Devices</span>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-start mt-2">
       <button class="btn btn-info me-2" (click)="reset()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="apparkingApp.manualControlDevice.home.refreshListLabel">Refresh List</span>
@@ -32,35 +32,45 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="reset()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col" jhiSortBy="device">
-            <span jhiTranslate="apparkingApp.manualControlDevice.device">Device</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.manualControlDevice.device">Device</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="state">
-            <span jhiTranslate="apparkingApp.manualControlDevice.state">State</span> <fa-icon icon="sort"></fa-icon>
+            <span jhiTranslate="apparkingApp.manualControlDevice.state">State</span>
+            <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
         <tr *ngFor="let manualControlDevice of manualControlDevices; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/manual-control-device', manualControlDevice.id, 'view']">{{ manualControlDevice.id }}</a>
-          </td>
+          <td>{{ manualControlDevice.id }}</td>
           <td>{{ manualControlDevice.device }}</td>
-          <td>{{ manualControlDevice.state }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-sm btn-danger"
+              (click)="setActive(manualControlDevice, true)"
+              *ngIf="!manualControlDevice.state"
+            >
+              Stan 0
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-success"
+              (click)="setActive(manualControlDevice, false)"
+              *ngIf="manualControlDevice.state"
+            >
+              Stan 1
+            </button>
+          </td>
           <td class="text-end">
             <div class="btn-group">
-              <button
-                type="submit"
-                [routerLink]="['/manual-control-device', manualControlDevice.id, 'view']"
-                class="btn btn-info btn-sm"
-                data-cy="entityDetailsButton"
-              >
-                <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-              </button>
-
               <button
                 type="submit"
                 [routerLink]="['/manual-control-device', manualControlDevice.id, 'edit']"

@@ -7,9 +7,9 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "parkingClient": "Parking Client",
-        "cameraReading": "Camera Reading",
-        "manualControlDevice": "Manual Control Device",
+        "parkingClient": "Clients",
+        "cameraReading": "Camera readings",
+        "manualControlDevice": "Manual control devices",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -98,7 +98,7 @@
       "cancel": "Cancel",
       "delete": "Delete",
       "edit": "Edit",
-      "open": "Open",
+      "open": "[LINK]",
       "save": "Save",
       "view": "View"
     },
@@ -140,5 +140,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "This is your footer"
+  "footer": "© by Adrian Wasiński (Master Thesis)"
 }

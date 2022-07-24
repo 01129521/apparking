@@ -2,17 +2,17 @@
   "apparkingApp": {
     "cameraReading": {
       "home": {
-        "title": "Camera Reading",
-        "refreshListLabel": "Refresh list",
-        "notFound": "No Camera Readings found"
+        "title": "Odczyty z kamery",
+        "refreshListLabel": "Odśwież listę",
+        "notFound": "Nie znaleziono odczytów"
       },
       "detail": {
-        "title": "Camera Reading"
+        "title": "Odczyt"
       },
       "id": "ID",
-      "cameraReadingDate": "Camera Reading Date",
-      "licensePlateNumbers": "License Plate Numbers",
-      "licensePlatePhoto": "License Plate Photo"
+      "cameraReadingDate": "Data odczytu",
+      "licensePlateNumbers": "Numery tablicy rejestracyjnej",
+      "licensePlatePhoto": "Zdjęcie auta"
     }
   }
 }

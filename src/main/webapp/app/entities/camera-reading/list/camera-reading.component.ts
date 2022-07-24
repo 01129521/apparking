@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { ICameraReading } from '../camera-reading.model';
+import { CameraReading, ICameraReading } from '../camera-reading.model';
 
 import { ASC, DESC, ITEMS_PER_PAGE } from 'app/config/pagination.constants';
 import { CameraReadingService } from '../service/camera-reading.service';
@@ -77,6 +77,23 @@ export class CameraReadingComponent implements OnInit {
 
   openFile(base64String: string, contentType: string | null | undefined): void {
     return this.dataUtils.openFile(base64String, contentType);
+  }
+
+  public searchReading(key: string): void {
+    const results: CameraReading[] = [];
+    for (const reading of this.cameraReadings) {
+      if (
+        reading.cameraReadingDate?.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        reading.licensePlateNumbers?.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        reading.licensePlatePhotoContentType?.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      ) {
+        results.push(reading);
+      }
+    }
+    this.cameraReadings = results;
+    if (results.length === 0 || !key) {
+      this.loadAll();
+    }
   }
 
   protected sort(): string[] {

@@ -5,6 +5,7 @@
         "title": "Parking Clients",
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Parking Client",
+        "editLabel": "Edit existed Parking Client",
         "createOrEditLabel": "Create or edit a Parking Client",
         "notFound": "No Parking Clients found"
       },
